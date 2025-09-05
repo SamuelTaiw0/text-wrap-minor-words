@@ -17,18 +17,6 @@ Status: experimental. See `explainer.md`.
 npm i text-wrap-minor-words
 ```
 
-### Recommended CSS (snippet)
-
-```css
-.typo {
-  text-wrap: pretty;
-  hyphens: auto;
-  font-kerning: normal;
-  font-variant-ligatures: common-ligatures;
-}
-.typo :is(h1,h2,h3) { text-wrap: balance; }
-```
-
 ### Usage (ESM)
 
 ```ts
