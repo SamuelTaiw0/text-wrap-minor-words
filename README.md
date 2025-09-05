@@ -1,5 +1,8 @@
 ## text-wrap-minor-words
 
+[![CI](https://github.com/jlorenzetti/text-wrap-minor-words/actions/workflows/ci.yml/badge.svg)](https://github.com/jlorenzetti/text-wrap-minor-words/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/jlorenzetti/text-wrap-minor-words)](https://github.com/jlorenzetti/text-wrap-minor-words/releases)
+
 Experimental, CSS-first polyfill that augments `text-wrap: pretty` by biasing against line breaks immediately after minor words (articles, prepositions, short conjunctions) in languages where this is a widely accepted typesetting convention. It also applies a couple of safe, language-agnostic joins (e.g., `Fig. 2`, `20 °C`).
 
 Status: experimental. See `explainer.md`.
