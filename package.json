@@ -6,7 +6,7 @@
   "author": "Jacopo Lorenzetti <hello@jacopolorenzetti.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jlorenzetti/text-wrap-minor-words.git"
+    "url": "git+https://github.com/jlorenzetti/text-wrap-minor-words.git"
   },
   "bugs": {
     "url": "https://github.com/jlorenzetti/text-wrap-minor-words/issues"
@@ -23,6 +23,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "css",
     "typography",
@@ -36,7 +39,9 @@
   "files": [
     "dist",
     "README.md",
-    "explainer.md"
+    "explainer.md",
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "scripts": {
     "build": "tsup",
