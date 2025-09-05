@@ -5,7 +5,7 @@
 
 Experimental, CSS-first polyfill that augments `text-wrap: pretty` by biasing against line breaks immediately after minor words (articles, prepositions, short conjunctions) in languages where this is a widely accepted typesetting convention. It also applies a couple of safe, language-agnostic joins (e.g., `Fig. 2`, `20 °C`).
 
-Status: experimental. See `explainer.md`.
+Status: experimental. See `explainer.md`. Live demo: https://jlorenzetti.github.io/text-wrap-minor-words/
 
 ### Motivation (lean)
 

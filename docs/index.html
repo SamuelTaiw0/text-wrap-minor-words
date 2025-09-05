@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>text-wrap-minor-words demo</title>
+    <style>
+      body { font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+      .typo { text-wrap: pretty; hyphens: auto; font-kerning: normal; font-variant-ligatures: common-ligatures; }
+      .typo :is(h1,h2,h3){ text-wrap: balance; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.5rem; }
+      section { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; }
+      h2 { margin: 0 0 .5rem; font-size: 1.1rem; }
+      p { margin: .5rem 0; }
+    </style>
+  </head>
+  <body>
+    <main class="typo">
+      <h1>text-wrap-minor-words demo</h1>
+      <div class="grid">
+        <section>
+          <h2 lang="ca">Català</h2>
+          <p lang="ca">Vaig a les cases amb els amics.</p>
+        </section>
+        <section>
+          <h2 lang="cs">Čeština</h2>
+          <p lang="cs">Jdu v sadu a jsem ve škole.</p>
+        </section>
+        <section>
+          <h2 lang="de">Deutsch (safe joins only)</h2>
+          <p lang="de">Dr. Müller sagt: z. B. so. Siehe Abb. 3 auf S. 12. Temperatur 20 °C um 9:30 am.</p>
+        </section>
+        <section>
+          <h2 lang="el">Ελληνικά</h2>
+          <p lang="el">οι άνθρωποι στο σπίτι. στις πόλεις και στους δρόμους.</p>
+        </section>
+        <section>
+          <h2 lang="en">English (safe joins only)</h2>
+          <p lang="en">Mr. Smith met J. K. Rowling. See Fig. 2. 1900-2000 studies. It was 20 °C at 9:30 am.</p>
+        </section>
+        <section>
+          <h2 lang="es">Español</h2>
+          <p lang="es">Voy a casa y estoy en el parque con un amigo. Son unos amigos y unas amigas.</p>
+        </section>
+        <section>
+          <h2 lang="fr">Français</h2>
+          <p lang="fr">Je vais à Paris et je suis de Lyon, chez un ami. Voir Fig. 2.</p>
+        </section>
+        <section>
+          <h2 lang="hr">Hrvatski</h2>
+          <p lang="hr">Sam u gradu i s prijateljem.</p>
+        </section>
+        <section>
+          <h2 lang="it">Italiano</h2>
+          <p lang="it">Vado a casa con la bici. Parlo con gli amici. Siamo di Roma e andiamo in centro.</p>
+        </section>
+        <section>
+          <h2 lang="nl">Nederlands (safe joins only)</h2>
+          <p lang="nl">dr. De Vries spreekt. Zie fig. 2.</p>
+        </section>
+        <section>
+          <h2 lang="pl">Polski</h2>
+          <p lang="pl">Jestem w domu i czekam na przyjaciela. Idę w dom i ze szkoły, u kolegi.</p>
+        </section>
+        <section>
+          <h2 lang="pt">Português</h2>
+          <p lang="pt">Vou a casa e estou no parque com um amigo. São uns amigos e umas amigas.</p>
+        </section>
+        <section>
+          <h2 lang="ro">Română</h2>
+          <p lang="ro">Merg la oraș cu un prieten și o prietenă.</p>
+        </section>
+        <section>
+          <h2 lang="ru">Русский</h2>
+          <p lang="ru">Я в Москве и иду на работу утром.</p>
+        </section>
+        <section>
+          <h2 lang="sk">Slovenčina</h2>
+          <p lang="sk">Idem v sade a som v škole, pri dome.</p>
+        </section>
+        <section>
+          <h2 lang="sl">Slovenščina</h2>
+          <p lang="sl">Sem v mestu in pri prijatelju.</p>
+        </section>
+        <section>
+          <h2 lang="sr">Srpski</h2>
+          <p lang="sr">Sam u gradu i s prijateljem.</p>
+        </section>
+      </div>
+    </main>
+    <script src="../dist/index.global.js"></script>
+    <script>
+      const ctrl = TextWrapMinorWords.init({ observe: true });
+      ctrl.process();
+    </script>
+  </body>
+  </html>
