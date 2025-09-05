@@ -1,0 +1,10 @@
+{
+  "lang": "pl",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["do","na","po","za","od","we","ku","ze"]
+  },
+  "categories": {
+    "labels": ["Rys.", "Nr", "s."]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "lang": "sk",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["do","na","po","od","zo","ku","pri","za","u","v","s","k","z"]
+  },
+  "categories": {
+    "labels": ["obr.", "č.", "s."]
+  }
+}

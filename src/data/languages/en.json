@@ -1,0 +1,8 @@
+{
+  "lang": "en",
+  "minorWords": null,
+  "categories": {
+    "labels": ["Fig.", "Eq.", "Sec.", "Ch.", "No.", "Vol.", "Art.", "p.", "pp.", "§", "¶", "Fig", "No"],
+    "honorifics": ["Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "St."]
+  }
+}

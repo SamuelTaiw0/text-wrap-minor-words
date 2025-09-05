@@ -1,0 +1,10 @@
+{
+  "lang": "ca",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["de","del","al","els","les","en","amb","per","un","una","el","la","lo","als","dels"]
+  },
+  "categories": {
+    "labels": ["Fig.", "Núm.", "p.", "pp."]
+  }
+}

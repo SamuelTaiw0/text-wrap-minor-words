@@ -1,0 +1,10 @@
+{
+  "lang": "ro",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["de","din","la","pe","cu","în","un","o","una","lui","ale","ai","al"]
+  },
+  "categories": {
+    "labels": ["Fig.", "Nr.", "p.", "pp."]
+  }
+}

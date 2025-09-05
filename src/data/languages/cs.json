@@ -1,0 +1,10 @@
+{
+  "lang": "cs",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["do","na","po","od","ve","se","ke","ze","za","u"]
+  },
+  "categories": {
+    "labels": ["obr.", "č.", "s."]
+  }
+}

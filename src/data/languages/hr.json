@@ -1,0 +1,10 @@
+{
+  "lang": "hr",
+  "minorWords": {
+    "threshold": 0,
+    "list": ["na","od","do","za","po","pri","iz","u","s","k"]
+  },
+  "categories": {
+    "labels": ["sl.", "br.", "str."]
+  }
+}

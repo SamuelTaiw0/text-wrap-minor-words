@@ -1,0 +1,12 @@
+{
+  "lang": "fr",
+  "minorWords": {
+    "threshold": 1,
+    "list": [
+      "de","du","le","la","les","un","une","en","au","aux","des","sur","par","sous","chez","dès","auxquels","auxquelles"
+    ]
+  },
+  "categories": {
+    "labels": ["Fig.", "N°", "No.", "p.", "pp."]
+  }
+}

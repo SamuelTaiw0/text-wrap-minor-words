@@ -1,0 +1,12 @@
+{
+  "lang": "es",
+  "minorWords": {
+    "threshold": 1,
+    "list": [
+      "de","del","en","la","el","los","las","un","una","unos","unas","por","con","al","sin"
+    ]
+  },
+  "categories": {
+    "labels": ["Fig.", "Nº", "No.", "p.", "pp."]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "name": "text-wrap-minor-words",
+  "version": "0.1.0",
+  "description": "Polyfill/extension for CSS text-wrap: pretty to bias against breaks after minor words and apply safe typographic joins.",
+  "license": "MIT",
+  "author": "Jacopo Lorenzetti <hello@jacopolorenzetti.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jlorenzetti/text-wrap-minor-words.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jlorenzetti/text-wrap-minor-words/issues"
+  },
+  "homepage": "https://github.com/jlorenzetti/text-wrap-minor-words#readme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.global.js"
+    }
+  },
+  "main": "./dist/index.global.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "keywords": [
+    "css",
+    "typography",
+    "text-wrap",
+    "minor-words",
+    "polyfill",
+    "microtypography",
+    "widows",
+    "orphans"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "explainer.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "tsx bench/bench.ts"
+  },
+  "devDependencies": {
+    "tsup": "^8.2.4",
+    "tsx": "^4.20.5",
+    "typescript": "^5.5.4",
+    "vitest": "^3.2.4"
+  }
+}

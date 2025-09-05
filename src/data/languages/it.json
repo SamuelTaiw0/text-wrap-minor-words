@@ -1,0 +1,14 @@
+{
+  "lang": "it",
+  "minorWords": {
+    "threshold": 1,
+    "list": [
+      "di","da","in","con","su","per","tra","fra",
+      "il","lo","la","gli","le","un","una","uno",
+      "al","ai","dal","dai","del","dei","nel","nei","sul","sui","col","coi"
+    ]
+  },
+  "categories": {
+    "labels": ["p.", "pp.", "Fig.", "N.", "n."]
+  }
+}

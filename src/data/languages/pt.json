@@ -1,0 +1,12 @@
+{
+  "lang": "pt",
+  "minorWords": {
+    "threshold": 1,
+    "list": [
+      "de","do","da","dos","das","em","no","na","nos","nas","um","uma","uns","umas","por","ao","aos","à","às"
+    ]
+  },
+  "categories": {
+    "labels": ["Fig.", "N.º", "No.", "p.", "pp."]
+  }
+}

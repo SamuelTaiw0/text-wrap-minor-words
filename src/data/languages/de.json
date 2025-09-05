@@ -1,0 +1,9 @@
+{
+  "lang": "de",
+  "minorWords": null,
+  "categories": {
+    "labels": ["Abb.", "Kap.", "Nr.", "S.", "§", "Nr"],
+    "honorifics": ["Dr.", "Prof.", "Fr."],
+    "abbrCompounds": ["z. B.", "u. a.", "d. h.", "o. Ä."]
+  }
+}

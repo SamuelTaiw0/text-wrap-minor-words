@@ -1,0 +1,10 @@
+{
+  "lang": "sl",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["na","do","po","od","za","pri","ob","v","s","k","z"]
+  },
+  "categories": {
+    "labels": ["sl.", "št.", "str."]
+  }
+}
