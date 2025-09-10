@@ -36,6 +36,26 @@ function hasPretty(el: Element): boolean {
   return false;
 }
 
+/**
+ * Read the proposed preference custom property.
+ * Returns 'none' to explicitly disable, 'minor-words' to enable, or null if not set.
+ */
+function readPreference(el: Element): 'none' | 'minor-words' | null {
+  let cur: Element | null = el;
+  while (cur) {
+    const cs = getComputedStyle(cur);
+    const raw = cs.getPropertyValue('--text-wrap-preferences');
+    if (raw) {
+      const v = raw.trim().toLowerCase();
+      if (!v) return null;
+      if (v.includes('none')) return 'none';
+      if (v.includes('minor-words')) return 'minor-words';
+    }
+    cur = cur.parentElement;
+  }
+  return null;
+}
+
 function* iterTextNodes(root: Element | Document, filter: (el: Element) => boolean): IterableIterator<Text> {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode(node) {
@@ -73,6 +93,13 @@ export function init(options: InitOptions = {}): Controller {
       const tag = el.tagName.toLowerCase();
       if (!/^(h1|h2|h3|h4|h5|h6|dt)$/.test(tag)) return false;
     }
+    // Preference order:
+    // 1) Explicit opt-out via --text-wrap-preferences: none
+    // 2) Explicit opt-in via --text-wrap-preferences: minor-words
+    // 3) Fallback to computed text-wrap: pretty (where supported)
+    const pref = readPreference(el);
+    if (pref === 'none') return false;
+    if (pref === 'minor-words') return true;
     return hasPretty(el);
   };
 
