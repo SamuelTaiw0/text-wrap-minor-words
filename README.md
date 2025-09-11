@@ -57,6 +57,15 @@ HTML markup should declare the language (`lang`) on blocks:
 ```
 
 ### What it does
+
+- Extends `text-wrap: pretty` behavior by inserting NBSP after minor words in languages where this is customary (Romance, Slavic, Greek by default).
+- Applies safe joins regardless of language:
+  - label + number: `Fig. 2`, `p. 12`, `§ 5`
+  - number + unit: `20 °C`, `9:30 am`
+  - honorific + Name: `Mr. Smith`, `Dr. Müller`
+  - initials sequence: `J. K. Rowling`
+  - numeric ranges: adds WORD JOINER around the dash
+
 ### Lite usage (single‑locale, recommended for production)
 
 Load only the core engine and register the locales you actually use. This keeps bundles small and avoids shipping unnecessary language data.
@@ -89,11 +98,19 @@ Notes:
 - The default (non‑lite) entry includes built‑in locale data for quick trials. Prefer the lite entry in production apps.
 - You can register multiple locales by calling `registerLanguage(tag, data)` more than once.
 
+Advanced (CSS opt‑in per container):
 
-- Extends `text-wrap: pretty` behavior by inserting NBSP after minor words in languages where this is customary (Romance, Slavic, Greek by default).
-- Applies safe joins regardless of language:
-  - label + number: `Fig. 2`, `p. 12`, `§ 5`
-  - number + unit: `20 °C`, `9:30 am`
+You can enable the minor‑words preference declaratively on specific elements via CSS. This is useful for safe‑only languages where you want the behavior only in display contexts.
+
+```css
+h1[lang="en"], h2[lang="en"] {
+  --text-wrap-preferences: minor-words;
+  --text-wrap-minor-threshold: 1; /* glue after 1‑letter tokens */
+  --text-wrap-minor-stoplist: "of to in on at for by a I"; /* optional additions */
+}
+```
+
+These custom properties are read when the preference is opted‑in on the element (or an ancestor) and the current language doesn’t have a built‑in minor‑words configuration.
 
 ### Language defaults
 
@@ -120,6 +137,23 @@ Returns a controller `{ process(root?), disconnect() }`.
 - Neutral languages (e.g., `en`, `de`, `nl`) do not enable minor-words glue by default; only safe joins apply.
 - For display-only processing, pass `{ context: 'display' }`.
 - You can pre-load language data via `languages: ['it','fr']` to avoid first-use compile cost.
+
+CSS preference gate and overrides:
+
+- You can opt in/out declaratively per container with `--text-wrap-preferences: minor-words | none`. On browsers without `text-wrap: pretty`, authors can set the preference under `@supports not (text-wrap: pretty)`.
+- When the preference is active and the current language has no built‑in `minorWords`, the engine reads optional overrides:
+  - `--text-wrap-minor-threshold: <number>` (glue after tokens up to N chars; typical value: 1)
+  - `--text-wrap-minor-stoplist: "space-separated tokens"` (per‑container additions)
+
+Example (headings in English):
+
+```css
+h1[lang="en"], h2[lang="en"] {
+  --text-wrap-preferences: minor-words;
+  --text-wrap-minor-threshold: 1;
+  --text-wrap-minor-stoplist: "of to in on at for by a I";
+}
+```
 
 ### Performance & constraints
 

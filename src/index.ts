@@ -12,6 +12,7 @@
 import { processTextNodes } from './internal/pipeline';
 import { normalizeLang, resolveLanguageData } from './internal/lang';
 import { registerLanguage as _registerLanguage, getRegisteredLanguage } from './internal/registry';
+import type { LanguageData, MinorWordsConfig } from './internal/types';
 
 export type InitOptions = {
   selector?: string;
@@ -60,6 +61,34 @@ function readPreference(el: Element): 'none' | 'minor-words' | null {
     cur = cur.parentElement;
   }
   return null;
+}
+
+/**
+ * Read minor-words custom properties when preference is opted-in via CSS.
+ * Returns null if neither threshold nor stoplist are provided.
+ */
+function readMinorWordsOverrides(el: Element): MinorWordsConfig | null {
+  let cur: Element | null = el;
+  let threshold: number | undefined;
+  let list: string[] | undefined;
+  while (cur) {
+    const cs = getComputedStyle(cur);
+    const thRaw = cs.getPropertyValue('--text-wrap-minor-threshold');
+    const slRaw = cs.getPropertyValue('--text-wrap-minor-stoplist');
+    if (!threshold && thRaw && thRaw.trim()) {
+      const n = parseInt(thRaw.trim(), 10);
+      if (!Number.isNaN(n) && n >= 0 && n <= 8) threshold = n;
+    }
+    if (!list && slRaw && slRaw.trim()) {
+      const s = slRaw.trim();
+      // Accept quoted or plain tokens; split on whitespace
+      const tokens = s.replace(/^"|"$/g, '').split(/\s+/).filter(Boolean);
+      if (tokens.length) list = tokens;
+    }
+    cur = cur.parentElement;
+  }
+  if (threshold === undefined && !list) return null;
+  return { threshold: threshold ?? 1, list };
 }
 
 function* iterTextNodes(root: Element | Document, filter: (el: Element) => boolean): IterableIterator<Text> {
@@ -118,8 +147,19 @@ export function init(options: InitOptions = {}): Controller {
     }
     for (const container of containers) {
       for (const text of iterTextNodes(container, shouldProcessElement)) {
-        const langTag = normalizeLang(text.parentElement?.lang || document.documentElement.lang || '');
-        const data = langs.get(langTag) ?? getRegisteredLanguage(langTag) ?? resolveLanguageData(langTag);
+        const parent = text.parentElement as HTMLElement | null;
+        const langTag = normalizeLang(parent?.lang || (document.documentElement as HTMLElement).lang || '');
+        let data: LanguageData = (langs.get(langTag) ?? getRegisteredLanguage(langTag) ?? resolveLanguageData(langTag)) as LanguageData;
+        // If CSS preference is opted-in and language has no default minorWords, allow CSS overrides
+        if (parent) {
+          const pref = readPreference(parent);
+          if (pref === 'minor-words' && (data.minorWords == null)) {
+            const ov = readMinorWordsOverrides(parent);
+            if (ov) {
+              data = { ...data, minorWords: { threshold: ov.threshold, list: ov.list } } as LanguageData;
+            }
+          }
+        }
         const next = processTextNodes(text.nodeValue!, data);
         if (next !== text.nodeValue) text.nodeValue = next;
       }
