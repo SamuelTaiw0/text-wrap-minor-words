@@ -126,4 +126,10 @@ describe('processTextNodes', () => {
     const out = processTextNodes('Sam u gradu i s prijateljem.', sr);
     expect(out).toBe(`Sam u${NBSP}gradu i s${NBSP}prijateljem.`);
   });
+
+  it('handles Ukrainian minor words', () => {
+    const uk = resolveLanguageData('uk');
+    const out = processTextNodes('Я у місті і йду до друга, на роботу.', uk);
+    expect(out).toBe(`Я у${NBSP}місті і йду до${NBSP}друга, на${NBSP}роботу.`);
+  });
 });

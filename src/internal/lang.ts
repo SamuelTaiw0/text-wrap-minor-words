@@ -19,6 +19,7 @@ import sl from '../data/languages/sl.json';
 import hr from '../data/languages/hr.json';
 import sr from '../data/languages/sr.json';
 import sk from '../data/languages/sk.json';
+import uk from '../data/languages/uk.json';
 import { LanguageData } from './types';
 
 const TABLE: Record<string, LanguageData> = {
@@ -38,7 +39,8 @@ const TABLE: Record<string, LanguageData> = {
   sl,
   hr,
   sr,
-  sk
+  sk,
+  uk
 };
 
 /** Normalize BCP47 tag to primary subtag in lowercase, e.g. "en-GB" -> "en". */

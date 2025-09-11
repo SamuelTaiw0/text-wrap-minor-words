@@ -37,6 +37,8 @@ function lorem(lang: string): string {
       return 'Sem v mestu in pri prijatelju. Glej sl. 2.';
     case 'sr':
       return 'Сам у граду и с пријатељем. Види сл. 2.';
+    case 'uk':
+      return 'Я у місті і йду до друга, на роботу. Див. Рис. 2.';
     default:
       return 'See Fig. 2 for details. It was 20 °C at 9:30 am.';
   }
@@ -58,7 +60,7 @@ function run(lang: string, iterations: number, repeat: number): number {
   return end - start;
 }
 
-const langs = ['ca','cs','de','el','en','es','fr','hr','it','nl','pl','pt','ro','ru','sk','sl','sr'];
+const langs = ['ca','cs','de','el','en','es','fr','hr','it','nl','pl','pt','ro','ru','sk','sl','sr','uk'];
 const iterations = 2000;
 const repeat = 20;
 
