@@ -1,3 +1,10 @@
+## 0.3.0
+
+- Core: lite entry + runtime language registry (`registerLanguage`) for single‑locale usage.
+- Core: CSS overrides for minor‑words opt‑in per container (`--text-wrap-minor-threshold`, `--text-wrap-minor-stoplist`) when `--text-wrap-preferences: minor-words` is active and the locale has no built‑in config.
+- Datasets: add uk, bg, mk, be, gl, sv, da, nb, nn, lt, lv.
+- Docs: README updated (Lite usage, CSS opt‑in), demo unchanged.
+
 ## 0.2.0
 
 - Core: dual gate for activation — explicit `--text-wrap-preferences` opt-out/opt-in with fallback to computed `text-wrap: pretty` where supported.

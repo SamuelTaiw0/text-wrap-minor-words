@@ -1,6 +1,6 @@
 {
   "name": "text-wrap-minor-words",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Polyfill/extension for CSS text-wrap: pretty to bias against breaks after minor words and apply safe typographic joins.",
   "license": "MIT",
   "author": "Jacopo Lorenzetti <hello@jacopolorenzetti.com>",
