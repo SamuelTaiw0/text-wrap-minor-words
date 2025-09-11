@@ -14,6 +14,7 @@ import fr from '../data/languages/fr.json';
 import gl from '../data/languages/gl.json';
 import it from '../data/languages/it.json';
 import nl from '../data/languages/nl.json';
+import da from '../data/languages/da.json';
 import pl from '../data/languages/pl.json';
 import pt from '../data/languages/pt.json';
 import ro from '../data/languages/ro.json';
@@ -24,6 +25,11 @@ import sr from '../data/languages/sr.json';
 import sk from '../data/languages/sk.json';
 import uk from '../data/languages/uk.json';
 import mk from '../data/languages/mk.json';
+import sv from '../data/languages/sv.json';
+import nb from '../data/languages/nb.json';
+import nn from '../data/languages/nn.json';
+import lt from '../data/languages/lt.json';
+import lv from '../data/languages/lv.json';
 import { LanguageData } from './types';
 
 const TABLE: Record<string, LanguageData> = {
@@ -39,7 +45,12 @@ const TABLE: Record<string, LanguageData> = {
   gl,
   hr,
   it,
+  lt,
+  lv,
+  mk,
+  nb,
   nl,
+  nn,
   pl,
   pt,
   ro,
@@ -47,8 +58,8 @@ const TABLE: Record<string, LanguageData> = {
   sk,
   sl,
   sr,
-  uk,
-  mk
+  sv,
+  uk
 };
 
 /** Normalize BCP47 tag to primary subtag in lowercase, e.g. "en-GB" -> "en". */

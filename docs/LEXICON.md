@@ -46,6 +46,16 @@ NBSP = U+00A0, WORD JOINER = U+2060
   - labels: Сл., бр., стр., §
 - nl
   - labels: fig., nr., p., §
+- nb/nn (neutral)
+  - labels: fig., nr., s., kap., §
+- da (neutral)
+  - labels: fig., nr., s., kap., §
+- sv (neutral)
+  - labels: fig., nr., s., kap., §
+- lt (neutral)
+  - labels: pav., nr., p., sk., §
+- lv (neutral)
+  - labels: att., nr., lpp., §
 - pl
   - labels: Rys., Nr, s.
 - pt
