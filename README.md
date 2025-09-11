@@ -48,7 +48,7 @@ HTML markup should declare the language (`lang`) on blocks:
 ### Usage (Browser global)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/dist/index.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.0/dist/index.global.js"></script>
 <script>
   const ctrl = TextWrapMinorWords.init({ observe: true });
   // ctrl.process(document.querySelector('.typo'));
@@ -86,8 +86,8 @@ Browser global (lite):
 
 ```html
 <script type="module">
-  import { init, registerLanguage } from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/dist/lite.mjs';
-  import it from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/src/data/languages/it.json' assert { type: 'json' };
+  import { init, registerLanguage } from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.0/dist/lite.mjs';
+  import it from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.0/src/data/languages/it.json' assert { type: 'json' };
 
   registerLanguage('it', it);
   init({ languages: ['it'] });
