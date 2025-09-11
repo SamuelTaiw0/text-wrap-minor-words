@@ -1,6 +1,6 @@
 {
   "name": "text-wrap-minor-words",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Polyfill/extension for CSS text-wrap: pretty to bias against breaks after minor words and apply safe typographic joins.",
   "license": "MIT",
   "author": "Jacopo Lorenzetti <hello@jacopolorenzetti.com>",
@@ -22,7 +22,7 @@
       "import": "./dist/lite.mjs",
       "require": "./dist/lite.global.js"
     },
-    "./locales/*.json": "./src/data/languages/*.json"
+    "./locales/*.json": "./locales/*.json"
   },
   "main": "./dist/index.global.js",
   "module": "./dist/index.mjs",
@@ -46,10 +46,14 @@
     "README.md",
     "explainer.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "locales"
   ],
   "scripts": {
     "build": "tsup",
+    "postbuild": "rm -rf locales && mkdir -p locales && cp -R src/data/languages/* locales/",
+    "prepack": "npm run build && npm run postbuild",
+    "postpack": "rm -rf locales",
     "clean": "rm -rf dist",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",

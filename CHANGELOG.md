@@ -16,4 +16,11 @@
 - Language datasets: ca, cs, de, el, en, es, fr, hr, it, nl, pl, pt, ro, ru, sk, sl, sr.
 - Demo: multilingual examples aligned with dataset.
 - Docs: README (lean), explainer (with references), docs/LEXICON.md (safe tokens), CONTRIBUTING.
-- CI: GitHub Actions for typecheck, test, build. Bench script.
+ - CI: GitHub Actions for typecheck, test, build. Bench script.
+
+## 0.3.1
+
+- Publish locales in npm package for lite entry usage
+- Add prepack/postpack scripts to stage JSONs under `locales/` only for the npm tarball
+- Adjust exports mapping for `./locales/*.json`
+- Update docs to prefer CDN/npm `locales/` path in examples

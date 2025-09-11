@@ -4,6 +4,7 @@ node_modules/
 # Build output
 dist/
 coverage/
+locales/
 
 # Logs
 npm-debug.log*
