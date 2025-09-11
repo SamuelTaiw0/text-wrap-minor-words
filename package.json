@@ -17,7 +17,12 @@
     ".": {
       "import": "./dist/index.mjs",
       "require": "./dist/index.global.js"
-    }
+    },
+    "./lite": {
+      "import": "./dist/lite.mjs",
+      "require": "./dist/lite.global.js"
+    },
+    "./locales/*.json": "./src/data/languages/*.json"
   },
   "main": "./dist/index.global.js",
   "module": "./dist/index.mjs",

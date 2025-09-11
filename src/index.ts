@@ -11,6 +11,7 @@
 
 import { processTextNodes } from './internal/pipeline';
 import { normalizeLang, resolveLanguageData } from './internal/lang';
+import { registerLanguage as _registerLanguage, getRegisteredLanguage } from './internal/registry';
 
 export type InitOptions = {
   selector?: string;
@@ -22,6 +23,11 @@ export type InitOptions = {
 export interface Controller {
   process(root?: Element | Document): void;
   disconnect(): void;
+}
+
+/** Register a language at runtime (used with the lite build). */
+export function registerLanguage(tag: string, data: import('./internal/types').LanguageData): void {
+  _registerLanguage(tag, data);
 }
 
 /** Returns true if any ancestor element of `el` computes to `text-wrap: pretty`. */
@@ -81,11 +87,11 @@ export function init(options: InitOptions = {}): Controller {
   const selector = options.selector ?? 'html';
   const context = options.context ?? 'all';
 
-  // Preload language data map
+  // Preload language data map; allow registered languages to override
   const langs = new Map<string, ReturnType<typeof resolveLanguageData>>();
   const requested = (options.languages ?? []).map(normalizeLang);
   for (const tag of requested) {
-    langs.set(tag, resolveLanguageData(tag));
+    langs.set(tag, getRegisteredLanguage(tag) ?? resolveLanguageData(tag));
   }
 
   const shouldProcessElement = (el: Element): boolean => {
@@ -113,7 +119,7 @@ export function init(options: InitOptions = {}): Controller {
     for (const container of containers) {
       for (const text of iterTextNodes(container, shouldProcessElement)) {
         const langTag = normalizeLang(text.parentElement?.lang || document.documentElement.lang || '');
-        const data = langs.get(langTag) ?? resolveLanguageData(langTag);
+        const data = langs.get(langTag) ?? getRegisteredLanguage(langTag) ?? resolveLanguageData(langTag);
         const next = processTextNodes(text.nodeValue!, data);
         if (next !== text.nodeValue) text.nodeValue = next;
       }

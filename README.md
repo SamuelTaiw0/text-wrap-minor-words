@@ -48,7 +48,7 @@ HTML markup should declare the language (`lang`) on blocks:
 ### Usage (Browser global)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.1.0/dist/index.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/dist/index.global.js"></script>
 <script>
   const ctrl = TextWrapMinorWords.init({ observe: true });
   // ctrl.process(document.querySelector('.typo'));
@@ -57,6 +57,38 @@ HTML markup should declare the language (`lang`) on blocks:
 ```
 
 ### What it does
+### Lite usage (single‑locale, recommended for production)
+
+Load only the core engine and register the locales you actually use. This keeps bundles small and avoids shipping unnecessary language data.
+
+```ts
+// Load the lite entry (no locales included)
+import { init, registerLanguage } from 'text-wrap-minor-words/lite';
+
+// Register only the locales you need (example: Italian)
+import it from 'text-wrap-minor-words/locales/it.json';
+registerLanguage('it', it);
+
+// Optionally preload the same tags here (helps the engine avoid a first lookup)
+init({ languages: ['it'] });
+```
+
+Browser global (lite):
+
+```html
+<script type="module">
+  import { init, registerLanguage } from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/dist/lite.mjs';
+  import it from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.2.0/src/data/languages/it.json' assert { type: 'json' };
+
+  registerLanguage('it', it);
+  init({ languages: ['it'] });
+</script>
+```
+
+Notes:
+- The default (non‑lite) entry includes built‑in locale data for quick trials. Prefer the lite entry in production apps.
+- You can register multiple locales by calling `registerLanguage(tag, data)` more than once.
+
 
 - Extends `text-wrap: pretty` behavior by inserting NBSP after minor words in languages where this is customary (Romance, Slavic, Greek by default).
 - Applies safe joins regardless of language:
