@@ -1,0 +1,11 @@
+{
+  "lang": "gl",
+  "minorWords": {
+    "threshold": 1,
+    "list": ["de","do","da","dos","das","en","no","na","nos","nas","un","unha","uns","unhas","por","con","co","cos","ca","cas","ao","aos","á","ás"]
+  },
+  "categories": {
+    "labels": ["Fig.", "Nº", "p.", "pp."]
+  }
+}
+

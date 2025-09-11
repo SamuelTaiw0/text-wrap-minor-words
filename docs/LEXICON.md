@@ -15,32 +15,52 @@ NBSP = U+00A0, WORD JOINER = U+2060
 
 ### Language tokens (safe set)
 
-- en
-  - labels: Fig., Eq., Sec., Ch., No., Vol., Art., p., pp., §, ¶, Fig, No
-  - honorifics: Mr., Mrs., Ms., Dr., Prof., St.
+- be
+  - labels: Рыс., №, с., §
+- bg
+  - labels: Фиг., №, с., §
+- ca
+  - labels: Fig., Núm., p., pp.
+- cs
+  - labels: obr., č., s.
 - de
   - labels: Abb., Kap., Nr., S., §, Nr
   - honorifics: Dr., Prof., Fr.
   - abbrCompounds: z. B., u. a., d. h., o. Ä.
-- fr
-  - labels: Fig., N°, No., p., pp.
-- es
-  - labels: Fig., Nº, No., p., pp.
-- pt
-  - labels: Fig., N.º, No., p., pp.
-- it
-  - labels: p., pp., Fig., N., n.
 - el
   - labels: Εικ., αρ., Νο.
+- en
+  - labels: Fig., Eq., Sec., Ch., No., Vol., Art., p., pp., §, ¶, Fig, No
+  - honorifics: Mr., Mrs., Ms., Dr., Prof., St.
+- es
+  - labels: Fig., Nº, No., p., pp.
+- fr
+  - labels: Fig., N°, No., p., pp.
+- gl
+  - labels: Fig., Nº, p., pp.
+- hr
+  - labels: sl., br., str.
+- it
+  - labels: p., pp., Fig., N., n.
+- mk
+  - labels: Сл., бр., стр., §
+- nl
+  - labels: fig., nr., p., §
 - pl
   - labels: Rys., Nr, s.
-- cs/sk
+- pt
+  - labels: Fig., N.º, No., p., pp.
+- ro
+  - labels: Fig., Nr., p., pp.
+- ru
+  - labels: Рис., №, с., §
+- sk
   - labels: obr., č., s.
-- sl/hr/sr
-  - labels: sl., št., str. / sl., br., str.
-- ca
-  - labels: Fig., Núm., p., pp.
-- ru/uk
+- sl
+  - labels: sl., št., str.
+- sr
+  - labels: sl., br., str.
+- uk
   - labels: Рис., №, с., §
 
 This list intentionally favors widely used abbreviations and avoids style-guide-specific variants.

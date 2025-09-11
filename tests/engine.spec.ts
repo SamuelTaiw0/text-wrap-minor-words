@@ -6,6 +6,12 @@ const NBSP = '\u00A0';
 const WJ = '\u2060';
 
 describe('processTextNodes', () => {
+  it('handles Catalan articles/determinants', () => {
+    const ca = resolveLanguageData('ca');
+    const out = processTextNodes('Vaig a les cases amb els amics.', ca);
+    expect(out).toBe(`Vaig a${NBSP}les${NBSP}cases amb${NBSP}els${NBSP}amics.`);
+  });
+
   it('joins label + number (en)', () => {
     const en = resolveLanguageData('en');
     const out = processTextNodes('See Fig. 2 for details.', en);
@@ -27,13 +33,7 @@ describe('processTextNodes', () => {
     expect(out).toBe(`It was 20${NBSP}°C at 9:30${NBSP}am.`);
   });
 
-  it('applies minor words (it)', () => {
-    const it = resolveLanguageData('it');
-    const out = processTextNodes('Vado a casa con la bici.', it);
-    expect(out).toBe(`Vado a${NBSP}casa con${NBSP}la${NBSP}bici.`);
-  });
-
-  it('applies minor words (fr single-letter à)', () => {
+  it('handles French minor words (single-letter à)', () => {
     const fr = resolveLanguageData('fr');
     const out = processTextNodes('Je vais à Paris.', fr);
     expect(out).toBe(`Je vais à${NBSP}Paris.`);
@@ -45,6 +45,12 @@ describe('processTextNodes', () => {
     expect(s1).toBe(`οι${NBSP}άνθρωποι στο${NBSP}σπίτι.`);
     const s2 = processTextNodes('στις πόλεις και στους δρόμους.', el);
     expect(s2).toBe(`στις${NBSP}πόλεις και στους${NBSP}δρόμους.`);
+  });
+
+  it('handles Bulgarian minor words', () => {
+    const bg = resolveLanguageData('bg');
+    const out = processTextNodes('Аз съм в града и отивам на работа по пътя.', bg);
+    expect(out).toBe(`Аз съм в${NBSP}града и отивам на${NBSP}работа по${NBSP}пътя.`);
   });
 
   it('applies Italian articles gli/le', () => {
@@ -91,12 +97,6 @@ describe('processTextNodes', () => {
     expect(out).toBe(`São uns${NBSP}amigos e${NBSP}umas${NBSP}amigas.`);
   });
 
-  it('handles Catalan articles/determinants', () => {
-    const ca = resolveLanguageData('ca');
-    const out = processTextNodes('Vaig a les cases amb els amics.', ca);
-    expect(out).toBe(`Vaig a${NBSP}les${NBSP}cases amb${NBSP}els${NBSP}amics.`);
-  });
-
   it('handles Polish short prepositions variants', () => {
     const pl = resolveLanguageData('pl');
     const out = processTextNodes('Idę w dom i ze szkoły, u kolegi.', pl);
@@ -127,9 +127,39 @@ describe('processTextNodes', () => {
     expect(out).toBe(`Sam u${NBSP}gradu i s${NBSP}prijateljem.`);
   });
 
+  it('handles Italian minor words', () => {
+    const it = resolveLanguageData('it');
+    const out = processTextNodes('Vado a casa con la bici.', it);
+    expect(out).toBe(`Vado a${NBSP}casa con${NBSP}la${NBSP}bici.`);
+  });
+
   it('handles Ukrainian minor words', () => {
     const uk = resolveLanguageData('uk');
     const out = processTextNodes('Я у місті і йду до друга, на роботу.', uk);
     expect(out).toBe(`Я у${NBSP}місті і йду до${NBSP}друга, на${NBSP}роботу.`);
+  });
+
+  it('handles Bulgarian minor words', () => {
+    const bg = resolveLanguageData('bg');
+    const out = processTextNodes('Аз съм в града и отивам на работа по пътя.', bg);
+    expect(out).toBe(`Аз съм в${NBSP}града и отивам на${NBSP}работа по${NBSP}пътя.`);
+  });
+
+  it('handles Macedonian minor words', () => {
+    const mk = resolveLanguageData('mk');
+    const out = processTextNodes('Сум во град и одам на работа со пријател.', mk);
+    expect(out).toBe(`Сум во${NBSP}град и одам на${NBSP}работа со${NBSP}пријател.`);
+  });
+
+  it('handles Belarusian minor words', () => {
+    const be = resolveLanguageData('be');
+    const out = processTextNodes('Я ў горадзе і іду да друга, на працу.', be);
+    expect(out).toBe(`Я ў${NBSP}горадзе і іду да${NBSP}друга, на${NBSP}працу.`);
+  });
+
+  it('handles Galician minor words', () => {
+    const gl = resolveLanguageData('gl');
+    const out = processTextNodes('Vou a casa con un amigo. Ver Nº 7.', gl);
+    expect(out).toBe(`Vou a${NBSP}casa con${NBSP}un${NBSP}amigo. Ver Nº${NBSP}7.`);
   });
 });

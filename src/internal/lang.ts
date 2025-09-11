@@ -3,12 +3,15 @@
  */
 
 import ca from '../data/languages/ca.json';
+import be from '../data/languages/be.json';
+import bg from '../data/languages/bg.json';
 import cs from '../data/languages/cs.json';
 import de from '../data/languages/de.json';
 import el from '../data/languages/el.json';
 import en from '../data/languages/en.json';
 import es from '../data/languages/es.json';
 import fr from '../data/languages/fr.json';
+import gl from '../data/languages/gl.json';
 import it from '../data/languages/it.json';
 import nl from '../data/languages/nl.json';
 import pl from '../data/languages/pl.json';
@@ -20,9 +23,12 @@ import hr from '../data/languages/hr.json';
 import sr from '../data/languages/sr.json';
 import sk from '../data/languages/sk.json';
 import uk from '../data/languages/uk.json';
+import mk from '../data/languages/mk.json';
 import { LanguageData } from './types';
 
 const TABLE: Record<string, LanguageData> = {
+  be,
+  bg,
   ca,
   cs,
   de,
@@ -30,17 +36,19 @@ const TABLE: Record<string, LanguageData> = {
   en,
   es,
   fr,
+  gl,
+  hr,
   it,
   nl,
   pl,
   pt,
   ro,
   ru,
-  sl,
-  hr,
-  sr,
   sk,
-  uk
+  sl,
+  sr,
+  uk,
+  mk
 };
 
 /** Normalize BCP47 tag to primary subtag in lowercase, e.g. "en-GB" -> "en". */

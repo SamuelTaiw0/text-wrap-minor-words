@@ -65,8 +65,8 @@ HTML markup should declare the language (`lang`) on blocks:
 
 ### Language defaults
 
-- Active by default: it, fr, es, pt, ca, ro, pl, cs, sk, sl, hr, sr, ru, uk, el (minor words enabled).
-- Neutral by default: en, de, nl (only safe joins; no minor-words glue in body text).
+- Active by default: be, bg, ca, cs, el, es, fr, gl, hr, it, mk, pl, pt, ro, ru, sk, sl, sr, uk.
+- Neutral by default: de, en, nl (only safe joins; no minor-words glue in body text).
 - The effective language is taken from `lang` (with fallback to the document root).
 
 ### API
